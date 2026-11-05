@@ -1,0 +1,275 @@
+.desk-canvas canvas {
+  aspect-ratio: 16 / 10;
+}
+.desk-start {
+  top: 72%;
+}
+.desk-retry {
+  top: 68%;
+}
+.scene-story {
+  display: grid;
+  grid-template-columns: .85fr 1.7fr;
+  gap: 52px;
+  border-top: 1px solid var(--border-medium);
+  margin-top: 36px;
+  padding-top: 32px;
+}
+.scene-story-intro h2 {
+  font: 400 33px var(--font-display);
+  line-height: 1.2;
+  margin: 12px 0;
+}
+.scene-story-intro p {
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.9;
+  max-width: 300px;
+}
+.scene-story-intro img {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 70%;
+  border: 1px solid var(--border-medium);
+  border-radius: 7px;
+  filter: saturate(0.7);
+  margin-top: 20px;
+}
+.object-role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+}
+.object-role {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9px;
+}
+.role-symbol {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: #d4fa780b;
+  color: var(--accent);
+  border: 1px solid #d4fa7822;
+  border-radius: 8px;
+  font-size: 23px;
+}
+.role-cables .role-symbol,
+.role-remote .role-symbol {
+  color: #c5aaff;
+  background: #c5aaff0b;
+  border-color: #c5aaff22;
+}
+.object-role h3 {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 5px 0 7px;
+}
+.object-role p {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.object-role .micro-label {
+  font-size: 8px;
+}
+.mode-disclosure {
+  font: 8px var(--font-mono);
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-top: 25px;
+}
+.desk-touch button {
+  padding: 13px 14px;
+}
+.scene-promise {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin: 13px 0;
+}
+.scene-promise strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+.mini-world {
+  background: linear-gradient(145deg, #6b4053, #303348);
+}
+.mini-world .mini-platform {
+  border: 0;
+  background: #59687a;
+  height: 14px;
+  width: 38px !important;
+}
+.mini-world .p1 {
+  left: 8px;
+  bottom: 39px;
+  transform: skewX(-8deg);
+  box-shadow: 0 -17px 0 -3px #a4b892;
+}
+.mini-world .p2 {
+  left: 67px;
+  bottom: 39px;
+  transform: skewX(-8deg);
+  box-shadow: 0 -17px 0 -3px #a58cae;
+}
+.mini-world .p3 {
+  right: 10px;
+  bottom: 82px;
+  height: 12px;
+  background: #263740;
+  border-radius: 6px;
+}
+.mini-world .mini-player {
+  top: 65px;
+  left: 47px;
+  width: 12px;
+  height: 16px;
+  border-radius: 2px;
+  transform: rotate(-20deg);
+  font-size: 0;
+}
+.mini-world .mini-player:after {
+  display: none;
+}
+.mini-world .g1 {
+  top: 50px;
+  left: 55px;
+}
+.mini-world .g2 {
+  left: 20px;
+  top: 16px;
+}
+.mini-world .g3 {
+  right: 8px;
+  top: 70px;
+}
+.game-frame:fullscreen .desk-canvas {
+  width: min(100vw, calc((100vh - 95px) * 16 / 10));
+}
+@media (max-width: 1050px) {
+  .scene-story {
+    gap: 28px;
+  }
+  .object-role {
+    padding: 15px;
+    gap: 10px;
+  }
+  .role-symbol {
+    width: 30px;
+    height: 30px;
+  }
+  .object-role-grid {
+    gap: 12px;
+  }
+  .scene-story-intro h2 {
+    font-size: 27px;
+  }
+}
+@media (max-width: 800px) {
+  .scene-story {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .scene-story-intro {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 0 24px;
+  }
+  .scene-story-intro > .micro-label,
+  .scene-story-intro h2,
+  .scene-story-intro p {
+    grid-column: 1;
+  }
+  .scene-story-intro img {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    height: 100%;
+    aspect-ratio: auto;
+    margin: 0;
+  }
+  .desk-play .game-bottom-bar > span:first-child {
+    flex-wrap: wrap;
+  }
+  .desk-start {
+    top: 72%;
+    font-size: 10px;
+  }
+  .game-bottom-bar .controls-divider {
+    margin: 0 5px;
+  }
+  .desk-touch {
+    gap: 5px;
+  }
+  .desk-touch button {
+    min-width: 35px;
+    padding: 13px 8px;
+    font-size: 11px;
+  }
+}
+@media (max-width: 500px) {
+  .object-role-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .object-role {
+    display: block;
+    padding: 12px;
+  }
+  .role-symbol {
+    width: 29px;
+    height: 29px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .object-role h3 {
+    font-size: 11px;
+  }
+  .object-role p {
+    font-size: 9px;
+  }
+  .object-role .micro-label {
+    font-size: 7px;
+  }
+  .scene-story-intro {
+    grid-template-columns: 1fr 100px;
+    gap: 0 12px;
+  }
+  .scene-story-intro h2 {
+    font-size: 25px;
+  }
+  .scene-story-intro p {
+    font-size: 10px;
+  }
+  .scene-story-intro img {
+    max-height: 155px;
+  }
+  .desk-start {
+    font-size: 8px;
+    min-height: 26px;
+    padding: 5px 10px;
+  }
+  .desk-start svg {
+    width: 12px;
+  }
+  .desk-play .game-toolbar > span {
+    font-size: 5.5px;
+  }
+  .mode-disclosure {
+    font-size: 7px;
+  }
+  .desk-touch button {
+    padding: 13px 5px;
+    font-size: 9px;
+  }
+}

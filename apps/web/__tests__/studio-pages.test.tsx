@@ -1,0 +1,12 @@
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { afterEach, expect, test, vi } from 'vitest';
+import { UploadPage } from '../src/pages/UploadPage';
+import { GalleryPage } from '../src/pages/GalleryPage';
+import { uploadResult } from '../src/lib/studio';
+afterEach(()=>{cleanup();vi.unstubAllGlobals();});
+test('upload page starts with no photograph, no game and no demo action',()=>{const {container}=render(<MemoryRouter><UploadPage/></MemoryRouter>);expect(container.querySelector('img')).toBeNull();expect(container.querySelector('canvas')).toBeNull();expect(screen.queryByText('System Override')).toBeNull();expect(screen.queryByRole('button',{name:/demo/i})).toBeNull();expect(screen.getByRole('button',{name:'Create my game'})).toBeDisabled();});
+test('a selected image requires explicit processing consent',()=>{render(<MemoryRouter><UploadPage/></MemoryRouter>);fireEvent.change(screen.getByLabelText('Choose a photograph'),{target:{files:[new File(['test'],'own-image.jpg',{type:'image/jpeg'})]}});expect(screen.getByRole('button',{name:'Create my game'})).toBeDisabled();fireEvent.click(screen.getByRole('checkbox'));expect(screen.getByRole('button',{name:'Create my game'})).toBeEnabled();expect(screen.queryByRole('img')).toBeNull();});
+test('invalid file formats are rejected',()=>{render(<MemoryRouter><UploadPage/></MemoryRouter>);fireEvent.change(screen.getByLabelText('Choose a photograph'),{target:{files:[new File(['test'],'bad.txt',{type:'text/plain'})]}});expect(screen.getByRole('alert')).toHaveTextContent('JPEG, PNG or WebP');});
+test('the archive displays the game without exposing its source photograph',async()=>{vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,json:async()=>({data:[{id:'job_system_override',title:'System Override',createdAt:'2026-11-05T00:00:00Z',regions:[],photoUrl:''}]})}));const {container}=render(<MemoryRouter><GalleryPage/></MemoryRouter>);expect(await screen.findByText('System Override')).toBeInTheDocument();expect(container.querySelector('img')).toBeNull();expect(screen.getByRole('link',{name:/System Override/})).toHaveAttribute('href','/play/job_system_override');});
+test('upload reads the real nested response and rejects invalid IDs',()=>{expect(uploadResult({data:{jobId:'job_test'}}).jobId).toBe('job_test');expect(()=>uploadResult({data:{}})).toThrow();});

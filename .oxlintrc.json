@@ -1,0 +1,60 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "off"
+  },
+  "rules": {
+    "no-control-regex": "off",
+    "no-misleading-character-class": "off",
+    "no-console": "off",
+    "eqeqeq": "off",
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-underscore-dangle": "off",
+    "no-shadow": "off",
+    "no-unmodified-loop-condition": "off",
+    "no-unassigned-import": "off",
+    "no-inner-declarations": "off",
+    "no-fallthrough": "off",
+    "no-empty": "off",
+    "no-constant-condition": "off",
+    "no-useless-escape": "off",
+    "typescript/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ],
+    "typescript/no-explicit-any": "off",
+    "typescript/consistent-type-imports": "off",
+    "typescript/no-unnecessary-type-assertion": "off",
+    "typescript/no-empty-interface": "off",
+    "typescript/no-empty-function": "off",
+    "typescript/no-non-null-assertion": "off",
+    "import/no-duplicates": "error"
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "*.tsbuildinfo",
+    ".gates",
+    "scrap",
+    "**/__tests__/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.test.mjs",
+    "tools/**",
+    "scripts/**",
+    "fixtures/**",
+    ".data/**",
+    "pnpm-lock.yaml",
+    "*.json"
+  ]
+}

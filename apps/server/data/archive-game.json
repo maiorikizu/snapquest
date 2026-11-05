@@ -1,0 +1,70 @@
+{
+  "id": "job_system_override",
+  "title": "System Override",
+  "subtitle": "An object-driven desktop action adventure.",
+  "family": "action-adventure",
+  "createdAt": "2026-11-05T00:00:00Z",
+  "seed": 1,
+  "regions": [],
+  "sprites": [],
+  "tint": [90, 70, 100],
+  "photoUrl": "",
+  "segmentationMode": "illustrated-archive",
+  "generationMs": 0,
+  "version": "system-override-private-v3",
+  "scene": {
+    "theme": "desktop",
+    "source": "curated-object-roles",
+    "premise": "The Shadow Laptop has corrupted the desktop network. Recover the USB data, use the remote to disable its firewall, then purge the terminal.",
+    "objects": [
+      {
+        "source": "Laptop",
+        "role": "home-terminal",
+        "art": "laptop",
+        "mechanic": "The cursor hero escapes from the home laptop."
+      },
+      {
+        "source": "Silver laptop",
+        "role": "shadow-terminal",
+        "art": "laptop",
+        "mechanic": "Shielded boss; unlock with the remote, then shoot to reboot."
+      },
+      {
+        "source": "Power brick",
+        "role": "repair-station",
+        "art": "charger",
+        "mechanic": "Approach to restore two health points."
+      },
+      {
+        "source": "Speaker",
+        "role": "sonic-weapon",
+        "art": "speaker",
+        "mechanic": "E releases a radial blast that clears cable bugs and hostile packets."
+      },
+      {
+        "source": "Remote",
+        "role": "firewall-switch",
+        "art": "remote",
+        "mechanic": "After collecting data, approach and press E to expose the boss."
+      },
+      {
+        "source": "Cables",
+        "role": "pursuing-enemies",
+        "art": "cable-snake",
+        "mechanic": "Cable bugs chase the player and drain power on contact."
+      },
+      {
+        "source": "Pens",
+        "role": "barriers",
+        "art": "pen",
+        "mechanic": "Physical obstacles in the route around the desk."
+      },
+      {
+        "source": "USB drive",
+        "role": "recovery-data",
+        "art": "usb",
+        "mechanic": "Recover five data drives scattered around the objects."
+      }
+    ]
+  }
+}

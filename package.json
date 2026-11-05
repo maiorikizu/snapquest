@@ -1,0 +1,32 @@
+{
+  "name": "snapquest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A local photo-to-game studio and System Override action adventure.",
+  "packageManager": "pnpm@11.23.0",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node apps/server/scripts/studio.mjs",
+    "build": "pnpm --filter @snapquest/web build",
+    "typecheck": "pnpm --filter @snapquest/web typecheck",
+    "test:studio": "node --test apps/server/scripts/studio.test.mjs",
+    "test:game": "node scripts/desk-smoke.mjs",
+    "test": "pnpm test:studio && pnpm test:game && pnpm --filter @snapquest/web test",
+    "deliverables": "node scripts/deliverables.mjs",
+    "lint": "biome check .",
+    "oxlint": "oxlint .",
+    "check": "pnpm typecheck && pnpm lint && pnpm oxlint && pnpm test",
+    "secret-scan": "node tools/secret-scan.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.10.2",
+    "oxlint": "^1.91.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  }
+}

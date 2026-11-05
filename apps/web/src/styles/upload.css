@@ -1,0 +1,219 @@
+.upload-home {
+  max-width: 1200px;
+  margin: 20px auto 0;
+}
+.upload-home-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: 570px;
+}
+.upload-home-intro h1 {
+  font-size: clamp(42px, 4.4vw, 68px);
+  font-weight: 500;
+  letter-spacing: -3px;
+  line-height: 1.13;
+  margin-bottom: 26px;
+}
+.upload-home-intro em {
+  font-family: var(--font-display);
+  color: var(--accent);
+  font-weight: 500;
+}
+.upload-home-intro > p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+}
+.privacy-points {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 35px;
+}
+.privacy-points > div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.privacy-points svg {
+  width: 16px;
+  color: var(--accent);
+}
+.home-note {
+  display: block;
+  font: 10px var(--font-mono);
+  color: var(--text-muted);
+  margin-top: 40px;
+}
+.upload-home .upload-card {
+  padding: 28px;
+  background: linear-gradient(120deg, #222d24, #1a241d);
+  box-shadow: 0 16px 60px #00000014;
+}
+.upload-home .drop-area {
+  min-height: 255px;
+  gap: 15px;
+}
+.upload-home .btn-full {
+  margin-top: 23px;
+  min-height: 49px;
+}
+.upload-home-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 30px 0;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 35px;
+  color: var(--text-muted);
+  font: 9px var(--font-mono);
+  letter-spacing: 2px;
+}
+.upload-home-bottom i {
+  width: 35px;
+  height: 1px;
+  background: var(--border-medium);
+}
+.archive-illustration {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: radial-gradient(ellipse at 80% 25%, #6c4762, #28343e 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.archive-illustration:before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 32%;
+  bottom: 18%;
+  border: 1px solid #c6b1ff33;
+  border-radius: 40%;
+}
+.archive-illustration .archive-laptop {
+  position: absolute;
+  width: 33%;
+  height: 28%;
+  background: #182b37;
+  border: 7px solid #566773;
+  border-radius: 8px;
+  top: 36%;
+  left: 12%;
+  box-shadow: 0 20px 0 -5px #697883;
+}
+.archive-illustration .archive-laptop.second {
+  left: 56%;
+  border-color: #a7aeb3;
+  background: #44324d;
+}
+.archive-illustration .archive-laptop:after {
+  content: "SQ";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 600 26px var(--font-ui);
+  color: #d4fa78;
+}
+.archive-illustration .second:after {
+  content: "×";
+  font-size: 42px;
+  color: #e6abd2;
+}
+.archive-illustration .archive-drone {
+  color: #d4fa78;
+  font-size: 32px;
+  position: absolute;
+  bottom: 19%;
+  left: 47%;
+  filter: drop-shadow(0 0 10px #d4fa7877);
+}
+.archive-illustration .archive-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font: 8px var(--font-mono);
+  letter-spacing: 1px;
+  color: #d4fa78;
+}
+.source-link {
+  margin-left: auto;
+}
+@media (max-width: 900px) {
+  .upload-home-grid {
+    gap: 35px;
+    min-height: 520px;
+  }
+  .upload-home-intro h1 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
+  .upload-home .upload-card {
+    padding: 20px;
+  }
+  .upload-home .drop-area {
+    min-height: 225px;
+  }
+}
+@media (max-width: 700px) {
+  .upload-home {
+    margin-top: 0;
+  }
+  .upload-home-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    min-height: 0;
+  }
+  .upload-home-intro h1 {
+    font-size: 49px;
+  }
+  .upload-home-intro > p {
+    font-size: 12px;
+  }
+  .privacy-points {
+    display: none;
+  }
+  .home-note {
+    margin-top: 22px;
+    font-size: 9px;
+  }
+  .upload-home .upload-card {
+    max-width: 540px;
+    width: 100%;
+    margin: auto;
+  }
+  .upload-home .drop-area {
+    min-height: 205px;
+  }
+  .upload-home-bottom {
+    gap: 13px;
+    letter-spacing: 1px;
+    font-size: 8px;
+    margin-top: 30px;
+  }
+  .upload-home-bottom i {
+    width: 18px;
+  }
+  .scene-story-intro {
+    display: block;
+  }
+  .scene-story-intro > p {
+    max-width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .upload-home-intro h1 {
+    font-size: 41px;
+  }
+  .upload-home .upload-card {
+    padding: 18px;
+  }
+}

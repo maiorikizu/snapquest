@@ -1,0 +1,12 @@
+import {mkdir,readFile,writeFile}from'node:fs/promises';
+import{dirname,resolve}from'node:path';
+import{fileURLToPath}from'node:url';
+import{loadDeskRuntime}from'./desk-smoke.mjs';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const game=JSON.parse(await readFile(resolve(root,'apps/server/data/archive-game.json'),'utf8'));
+const {exports}=await loadDeskRuntime();
+await mkdir(resolve(root,'deliverables'),{recursive:true});
+const html=exports.deskStandalone(game);
+if(/data:image|base64|IMG_\d|[A-Z]:\\/.test(html))throw new Error('Private source data found in export');
+await writeFile(resolve(root,'deliverables/SnapQuest-System-Override.html'),html);
+console.log('Generated the standalone illustrated game without source photographs or local metadata.');

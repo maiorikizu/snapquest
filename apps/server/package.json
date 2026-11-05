@@ -1,0 +1,15 @@
+{
+  "name": "@snapquest/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/studio.mjs",
+    "test": "node --test scripts/studio.test.mjs"
+  },
+  "dependencies": {
+    "@fastify/multipart": "^10.1.6",
+    "fastify": "^5.12.7",
+    "sharp": "^0.35.5"
+  }
+}
